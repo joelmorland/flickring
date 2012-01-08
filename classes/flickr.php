@@ -4,26 +4,21 @@
 
 class flickr extends phpFlickr
 {     
-    function searchPhotos($search='moon', $page=1) 
+    function searchPhotos($search, $page=1) 
     {        
         #get photos with extra params to get original format & dimensions
         $photos = $this->photos_search(array("tags"=>$search, "tag_mode"=>"any", "per_page"=>"5", "page"=>$page, "extras"=>"original_format,o_dims", "privacy_filter"=>1));
         
         //check that photos returned
         if (is_array($photos) && count($photos)) {
-            echo "<div id='notice'>Found {$photos['total']} Photos</div>";
+            $disp = ($page*5-5).' - '.($page*5); #displaying photos
+            echo "<div id='notice'>Found {$photos['total']} Photos | Displaying $disp</div>";
             echo '<div id="gallery">';
+            
             #echo photos
             foreach ($photos['photo'] as $photo) 
             {
-                #print_r($photo);
-                #$owner = $this->people_getInfo($photo['owner']);
                 echo "<a href='index.php?image={$photo['id']}' target='_blank'><img class='galleryImage' src='".$this->buildPhotoURL($photo,'thumbnail')."' /></a>";
-                /*echo "<a href='http://www.flickr.com/photos/" . $photo['owner'] . "/" . $photo['id'] . "/'>";
-                echo $photo['title'];
-                echo "</a> Owner: ";
-                echo "<a href='http://www.flickr.com/people/" . $photo['owner'] . "/'>";
-                echo "</a><br>";*/
             }
             echo '</div>';
             
@@ -52,8 +47,7 @@ class flickr extends phpFlickr
         #if image is restricted from full resolution download, display as large        
         $size=(isset($photo['photo']['originalformat'], $photo['photo']['originalsecret']))?'original':'large';
         
-        #echo "<img src='".$this->buildPhotoURL($photo['photo'],$size)."' />";
-        #header('Content-Type: image/jpeg');
+        #show full size image rather than HTML <img tag
         header('location:'.$this->buildPhotoURL($photo['photo'],$size));
     }
 }
