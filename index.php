@@ -15,13 +15,12 @@ if (isset($_GET['image'])) {
 }
 
 #get search and page to keep it tidy and separate html from PHP logic
-$search=(isset($_GET['s']))?$_GET['s']:'moon';
+$search=(isset($_GET['s']))?$_GET['s']:'ocean';
 $page=(isset($_GET['p']))?$_GET['p']:1;
 ?>
 
 <html>
 <head>
-    <title>flickring PHP app</title>
     <link rel="stylesheet" href="CSS/style.css" type="text/css" media="all" />
 </head>
 <body>
