@@ -12,7 +12,7 @@ if (isset($_GET['image'])) {
 }
 
 #get search and page to keep it tidy and separate html from PHP logic
-$search=(isset($_GET['s']))?$_GET['s']:'ocean';
+$search=(isset($_GET['s']))?$_GET['s']:'sun';
 $page=(isset($_GET['p']))?$_GET['p']:1;
 ?>
 
