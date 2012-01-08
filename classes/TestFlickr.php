@@ -1,18 +1,20 @@
 <?php
-
-#require phpFlickr class
-require_once("phpFlickr.php");
-
 #require my phpFlickr class extension
 require_once("flickr.php");
 
 require_once 'PHPUnit.php';
 
-class flickrTest extends PHPUnit_TestCase 
+class flickrTest extends PHPUnit_TestCase
 {
     public $test;
     
-    public function setUp() {
+    function flickrTest ($name) 
+    {
+        $this->PHPUnit_TestCase($name);
+    }
+    
+    public function setUp() 
+    {
         $this->test = new flickr("0469684d0d4ff7bb544ccbb2b0e8c848");
     }
     
@@ -20,18 +22,24 @@ class flickrTest extends PHPUnit_TestCase
     {        
         $joel = $this->test->searchPhotos();
         
-        $this->assertNotEmpty($joel);
+        #ensure 5 photos are returned
+        $this->assertTrue(substr_count($joel, "<img class='galleryImage'")==5);
     }
     
-    function TestPagination() {
+    function TestPagination() 
+    {
         $joel = $this->test->pagination();
         
-        $this->assertNotEmpty($joel);
+        #ensure pagination is displayed
+        $this->assertTrue(strstr($joel, '<div class="pagination">'));
     }
     
-    function echoImage($photoID) {
+    function echoImage($photoID) 
+    {
+        #mock/test image
         $joel = $this->test->echoImage(6653324159);
         
+        #ensure the image isn't empty
         $this->assertNotEmpty($joel);
     }
 }
