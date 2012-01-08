@@ -26,6 +26,10 @@ a:hover {
     text-align: center;
 }
 
+#search input {
+    text-align: left;
+}
+
 /* FORMS */
 input {
     padding: 6px;
@@ -60,5 +64,5 @@ div.pagination {
 }
 
 div.pagination a, b {
-    margin-right: 3px;
+    margin: 2px;
 }
