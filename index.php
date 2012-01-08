@@ -1,7 +1,4 @@
 <?php
-#require phpFlickr class
-require_once("classes/phpFlickr.php");
-
 #require my phpFlickr class extension
 require_once("classes/flickr.php");
 
