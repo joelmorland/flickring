@@ -51,7 +51,7 @@ class flickr extends phpFlickr
             } 
 
             #ensure current
-            echo ($cur<=($pages-2))?"...<a href='index.php?s=$search&p=$pages'>$pages</a>":'';
+            echo ($cur<($pages-2))?"...<a href='index.php?s=$search&p=$pages'>$pages</a>":'';
             
         echo '</div>';
     }
