@@ -2,6 +2,9 @@
 #flickr class written by Joel Morland
 #phpFlickr written by Dan Coulter
 
+#require phpFlickr class
+require_once("phpFlickr.php");
+
 class flickr extends phpFlickr
 {     
     function searchPhotos($search, $page=1) 
