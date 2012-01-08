@@ -21,6 +21,7 @@ $page=(isset($_GET['p']))?$_GET['p']:1;
 
 <html>
 <head>
+    <title>flickring PHP app</title>
     <link rel="stylesheet" href="CSS/style.css" type="text/css" media="all" />
 </head>
 <body>
