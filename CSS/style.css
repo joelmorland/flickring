@@ -1,0 +1,64 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, sans-serif;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    color: #FF8000;
+}
+
+/* LAYOUT */
+#container {
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    margin-left: -300px;
+    height: auto;
+}
+
+#search {
+    text-align: center;
+}
+
+/* FORMS */
+input {
+    padding: 6px;
+    border: 1px solid #999;
+    background: #EEE;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background: #BBB;
+}
+
+/* GALLERY */
+img.galleryImage {
+    float: left;
+    margin: 5px;
+    display: inline;
+    padding: 3px;
+    background: #EEE;
+    border: 1px dashed #999;
+}
+
+a img.galleryImage:hover {
+    border: 1px solid #999;
+}
+
+div.pagination {
+    clear: left;
+}
+
+div.pagination a, b {
+    margin-right: 3px;
+}
